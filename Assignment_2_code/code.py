@@ -1,33 +1,41 @@
 import urllib.request
 import re
-"""open the text file of """
+"""open the text file with the url and decode the data in the format of UTF-8 and store it into text1 and nltk_text1"""
 url1 = 'https://www.gutenberg.org/cache/epub/66627/pg66627.txt'
 response = urllib.request.urlopen(url1)
 data1 = response.read()
 text1 = data1.decode('utf-8')
 nltk_text1 = data1.decode('utf-8')
 
-
+"""open the text file with the url and decode the data in the format of UTF-8 and store it into text2 and nltk_text2"""
 url2 = 'https://www.gutenberg.org/cache/epub/66623/pg66623.txt'
 response = urllib.request.urlopen(url2)
 data2 = response.read()
 text2 = data2.decode('utf-8')
 nltk_text2 = data2.decode('utf-8')
-
+"""define the veriable strippables, which are the special characters that can be stripped form the text"""
 strippables = r"(?:s|'s|!+|,|\.|;|:|\(|\)|\"|\?+)?\s"
 
+"""subtitude the strippables with white space, and make all letters into lower cases"""
 text1 = re.sub(strippables, ' ',text1)
 text1 = text1.lower()
 text2 = re.sub(strippables, ' ',text2)
 text2 = text2.lower()
 
+"""
+Define the function cout_words that takes in a text file and return a dictionary with 
+the words as the key and how many times it occur in the text as the value
+"""
 def count_words(book):
-    word_count = {}
-    for i in book.split():
-        word_count[i] = word_count.get(i,0)+1
-    return word_count
+    word_count = {}     # define a dictionary
+    for i in book.split():      # create a loop for the list that is created by spliting the string by white space
+        word_count[i] = word_count.get(i,0)+1       #count the word in the dictionary
+    return word_count   #return the word count
 
-
+"""
+Define the function ranked_words that takes in a dictionary in the format that is outputed by count_words 
+the function returns a dictionary with words as key and times it 
+"""
 def ranked_words(dic):
     sorted_values = sorted(dic.values(),reverse=True) # Sort the values
     sorted_dict = {}
