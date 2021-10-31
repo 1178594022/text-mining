@@ -4,8 +4,11 @@ import matplotlib.pyplot as plt
 import nltk     #install the package
 nltk.download('vader_lexicon')      #download the necessary package
 
+"""open the stop_words document"""
 stop_words = open('stop_words.txt')
+"""create a new list"""
 stop_list = []
+"""put the stop words to a list which can be used as for the in logistics"""
 for line in stop_words:
     stop_list.append(line.strip())
 print(stop_list)
