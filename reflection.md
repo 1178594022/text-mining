@@ -3,7 +3,7 @@
 What data source(s) did you use and what technique(s) did you use analyze/process them? What did you hope to learn/create?
 * The project focus on learning about the structure and content of the book provided by gutenberg. 
 * In this project, I looked into analizing the following perspectives of the book:
-1. what are the word counts for the book in terms of each individual word
+1. what are the word counts for the book in terms of each individual word and crubs the stop words.
 2. what are the most frequently appeared words in the book.
 3. what are the top ten occured words in the book.
 4. For two different books, what words are different in terms of the top ten words of occurance.
